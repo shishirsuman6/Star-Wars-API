@@ -16,8 +16,14 @@ def response_people(scope="session"):
 
 @pytest.fixture
 def people(response_people):
-    response_json=response_people.json()
     people=[]
+    response_json=response_people.json()    
     for item in range(len(response_json["results"])):
         people.append(response_json["results"][item]["name"])
+    while (response_json["next"]):
+        url = str(response_json["next"])
+        response = requests.get(url)
+        response_json=response.json()   
+        for item in range(len(response_json["results"])):
+            people.append(response_json["results"][item]["name"])
     yield (people)

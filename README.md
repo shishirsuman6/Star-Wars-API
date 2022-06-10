@@ -20,7 +20,7 @@ Command to run the test suite:
 |-----------|-----------|-----------|
 |1|create fixture that returns an array with all people |Completed|
 |2|create test which checks that names of all people are unique|Completed|
-|3|create test (or a few) with validation that search for people is case insensitive||
+|3|create test (or a few) with validation that search for people is case insensitive|Completed|
 |4|create test which validates that there is no page with number 0 for people request||
 |5|create parametrized test which checks that there are 3 Skywalker's, 1 Vader, 2 Darth's (using ?search)||
 |6|create test(s) which validate that all people objects contain required schema fields. If validation fails – person id and name should be in error/fail message. All persons with failed validation must be reported during one test run.||
@@ -37,7 +37,7 @@ Command to run the test suite:
 ||b.	**implement decorator in a way when it is possible to parametrize it and disable output to file like @get_time(write_to_file=True/False)||
 |12|* try to suggest (and implement if possible) any meaningful and suitable tests for "get /people" requests with parameter ?format=wookiee ||
 |13|* There is some bug with implementation of Wookiee format. It would be great if you can find that and say a few words with your thoughts what is the root cause. Please write some kind of “Bug report” for issue found in the way how you would create that in bugtracker system.||
-||||
+
 
 
 ## Test Run Reports:

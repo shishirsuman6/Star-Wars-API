@@ -10,9 +10,15 @@ import requests
 import json
 
 
+
 # #--------------------------------------------------------------------
 # # functions
 # #--------------------------------------------------------------------
 
 def pytest_html_report_title(report):
     report.title = "Star Wars API - Test Results"
+
+def response_search(resource,query_string):
+    url= f"https://swapi.py4e.com/api/{resource}?search={query_string}"
+    response= requests.get(url)
+    return (response)
