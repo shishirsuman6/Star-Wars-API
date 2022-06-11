@@ -50,3 +50,11 @@ def test_swapi_get_people_name_is_lower_case_insensitive(people):
 def test_swapi_get_people_page_0():
     response=people_by_page(0)
     assert response.status_code == 404
+
+# 5) create parametrized test which checks that there are 3 Skywalker's, 1 Vader, 2 Darth's (using ?search)
+@pytest.mark.swapi
+@pytest.mark.parametrize(('name', 'count'), [('Skywalker', 3),('Vader', 1),('Darth',2)])
+def test_swapi_name_counter(people, name, count):
+    sub_name_dict=counter(people)
+    if name in sub_name_dict:
+        assert sub_name_dict[name] ==count

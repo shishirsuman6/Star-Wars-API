@@ -47,4 +47,13 @@ def skip_if():
     except:
         return True
 
-
+def counter(array):
+    dict={}
+    for item in array:
+        sub_item=item.split()
+        for word in sub_item:
+            if word in dict:
+                dict[word] += 1
+            else:
+                dict[word] = 1
+    return(dict)
