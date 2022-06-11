@@ -24,8 +24,8 @@ The following Test scenarios are covered in this Test Suite:
 |5|create parametrized test which checks that there are 3 Skywalker's, 1 Vader, 2 Darth's (using ?search)|Completed|
 |6|create test(s) which validate that all people objects contain required schema fields. If validation fails – person id and name should be in error/fail message. All persons with failed validation must be reported during one test run.|Completed|
 |7|create factory fixture “search_in_resource” that returns search function depending on the resource name provided as a parameter (people, planet, etc)|Completed|
-|8|create test which checks that search for any char in English alphabet or any number from 0 to 9 returns number of results>0 except cases of search by 6, 9 and 0. It is not allowed to use loops inside the test body.|In Progress|
-|9|"funny prints” (these prints should NOT be inside test function code) (see screenshot below with example) (tips to read: conftest file and well defined hooks: https://docs.pytest.org/en/6.2.x/reference.html#hook-reference)||
+|8|create test which checks that search for any char in English alphabet or any number from 0 to 9 returns number of results>0 except cases of search by 6, 9 and 0. It is not allowed to use loops inside the test body.|Completed|
+|9|"funny prints” (these prints should NOT be inside test function code) (see screenshot below with example) (tips to read: conftest file and well defined hooks: https://docs.pytest.org/en/6.2.x/reference.html#hook-reference)|In Progress|
 ||a.	on each time of tests execution the following phrase should appear only 1 time on the beginning of tests log: “We have cookies!” (even if executing a few files or classes or only one test)||
 ||b.	at the end of each test the phrase “May the Force Be With You” should appear in log||
 ||c.	*add a boolean parameter “may-force” for pytest launch (pytest –may-force) that is false by default. If specified as True then phrases from a) and b) should be printed. If false – phrases should not be in the log.||

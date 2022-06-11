@@ -8,6 +8,8 @@ from numpy import array
 import pytest
 import requests
 import json
+import random
+import string
 
 
 
@@ -41,7 +43,11 @@ def counter(array):
                 dict[word] = 1
     return(dict)
 
-
+def get_random_alphanumeric_string():
+    str=string.ascii_letters+ '1234567890'
+    # str= '690' # to test results==0 scenario
+    return ''.join(random.choice(str) for i in range(1))
+    
 def people_name_slice(n):
     f = open("people_name.txt")
     data=f.read()
