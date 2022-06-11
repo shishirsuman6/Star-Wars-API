@@ -15,21 +15,31 @@ def response_people(scope="session"):
     yield (response(url))
 
 @pytest.fixture
-def people(response_people):
-    people=[]
-    response_json=response_people.json()    
-    with open('people_name.txt','w') as file:
+def people_results(response_people):
+    people_results=[]
+    response_json=response_people.json()   
+    with open('people_results.txt','w') as file: 
         for item in range(len(response_json["results"])):
-            people.append(response_json["results"][item]["name"])
-            file.write(str(response_json["results"][item]["name"]))
+            people_results.append(response_json["results"][item])
+            file.write(str(response_json["results"][item]))
             file.write('\n')
         while (response_json["next"]):
             url = str(response_json["next"])
             response_json=response(url).json()   
             for item in range(len(response_json["results"])):
-                people.append(response_json["results"][item]["name"])
-                file.write(str(response_json["results"][item]["name"]))
-                file.write('\n')
+                people_results.append(response_json["results"][item])
+                file.write(str(response_json["results"][item]))
+                file.write('\n')            
     
-    yield (people)
+    yield (people_results)
 
+@pytest.fixture
+def people(people_results):
+    people=[]   
+    with open('people_name.txt','w') as file:
+        for item in range(len(people_results)):
+            people.append(people_results[item]["name"])
+            file.write(str(people_results[item]["name"]))
+            file.write('\n')
+   
+    yield (people)

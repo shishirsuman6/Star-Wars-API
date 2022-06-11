@@ -1,5 +1,5 @@
 """
-The purpose of this test file is to store helper functions for the pytest framework for Kraken Websockets API 1.9.0
+The purpose of this test file is to store helper functions for the pytest framework for Start Wars API
 """
 #--------------------------------------------------------------------
 #Imports
@@ -30,6 +30,17 @@ def response_search(resource,query_string):
     url= f"https://swapi.py4e.com/api/{resource}?search={query_string}"
     return (response(url))
 
+def counter(array):
+    dict={}
+    for item in array:
+        sub_item=item.split()
+        for word in sub_item:
+            if word in dict:
+                dict[word] += 1
+            else:
+                dict[word] = 1
+    return(dict)
+
 
 def people_name_slice(n):
     f = open("people_name.txt")
@@ -47,13 +58,4 @@ def skip_if():
     except:
         return True
 
-def counter(array):
-    dict={}
-    for item in array:
-        sub_item=item.split()
-        for word in sub_item:
-            if word in dict:
-                dict[word] += 1
-            else:
-                dict[word] = 1
-    return(dict)
+

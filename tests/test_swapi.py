@@ -4,11 +4,13 @@ The purpose of this test is to show how to use the pytest framework for Start Wa
 #--------------------------------------------------------------------
 #Imports
 #--------------------------------------------------------------------
+import jsonschema
 from numpy import array
 import pytest
 import requests
 import json
 from helper_function import *
+from schema import *
 
 #--------------------------------------------------------------------
 # Tests
@@ -58,3 +60,22 @@ def test_swapi_name_counter(people, name, count):
     sub_name_dict=counter(people)
     if name in sub_name_dict:
         assert sub_name_dict[name] ==count
+
+# 6) create test(s) which validate that all people objects contain required schema fields.
+# If validation fails – person id and name should be in error/fail message.
+# All persons with failed validation must be reported during one test run.
+@pytest.mark.swapipeopleschema
+def test_swapi_validate_people_schema(people_results):
+    url="https://swapi.py4e.com/api/people/schema"
+    people_schema=response(url).json()
+    count=0
+    flag=False
+    for result in people_results:     
+        count+=1            
+        try:
+            jsonschema.validate(result, people_schema, jsonschema.Draft4Validator)     
+            #jsonschema.validate(result, schema_people_wrong, jsonschema.Draft4Validator)  # use for testing schema validation errors
+        except jsonschema.ValidationError as e: 
+            print (f"Schema Validation failed for name: {result['name']} having ID: {count}")   
+            flag=True 
+    assert flag == False
