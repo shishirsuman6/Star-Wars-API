@@ -43,3 +43,9 @@ def people(people_results):
             file.write('\n')
    
     yield (people)
+
+@pytest.fixture
+def search_in_resource(scope="session"):
+    def resource_search_response(resource,query_string):
+        return (response_search(resource,query_string))        
+    return resource_search_response

@@ -23,8 +23,8 @@ The following Test scenarios are covered in this Test Suite:
 |4|create test which validates that there is no page with number 0 for people request|Completed|
 |5|create parametrized test which checks that there are 3 Skywalker's, 1 Vader, 2 Darth's (using ?search)|Completed|
 |6|create test(s) which validate that all people objects contain required schema fields. If validation fails – person id and name should be in error/fail message. All persons with failed validation must be reported during one test run.|Completed|
-|7|create factory fixture “search_in_resource” that returns search function depending on the resource name provided as a parameter (people, planet, etc)|In Progress|
-|8|create test which checks that search for any char in English alphabet or any number from 0 to 9 returns number of results>0 except cases of search by 6, 9 and 0. It is not allowed to use loops inside the test body.||
+|7|create factory fixture “search_in_resource” that returns search function depending on the resource name provided as a parameter (people, planet, etc)|Completed|
+|8|create test which checks that search for any char in English alphabet or any number from 0 to 9 returns number of results>0 except cases of search by 6, 9 and 0. It is not allowed to use loops inside the test body.|In Progress|
 |9|"funny prints” (these prints should NOT be inside test function code) (see screenshot below with example) (tips to read: conftest file and well defined hooks: https://docs.pytest.org/en/6.2.x/reference.html#hook-reference)||
 ||a.	on each time of tests execution the following phrase should appear only 1 time on the beginning of tests log: “We have cookies!” (even if executing a few files or classes or only one test)||
 ||b.	at the end of each test the phrase “May the Force Be With You” should appear in log||
@@ -85,6 +85,7 @@ After that, follow these steps:
 1. [conftest.py](/tests/conftest.py) has basic Pytest Fixture for API Requests.  
 2. [helper_function.py](/tests/helper_function.py) has functions that provide abstraction of simple actions for the test cases.  
 3. [test_swapi.py](/tests/test_swapi.py) has Test Cases per the Test Scenarios.
+4. [schema.py](/tests/schema.py) is a schema store to be used during the validations.
 
 Other than that: 
 1. [Dockerfile](/Dockerfile) has Docker Blueprint for building images.

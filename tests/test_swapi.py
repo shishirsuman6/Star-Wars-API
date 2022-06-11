@@ -79,3 +79,15 @@ def test_swapi_validate_people_schema(people_results):
             print (f"Schema Validation failed for name: {result['name']} having ID: {count}")   
             flag=True 
     assert flag == False
+
+# 7) create factory fixture “search_in_resource” that returns search function depending on the resource name provided as a parameter (people, planet, etc)
+@pytest.mark.swapi
+@pytest.mark.parametrize(('resource'), ['people','planets','films','species','vehicles','starships'])
+def test_swapi_resource_search_query(resource, search_in_resource):
+    query=1
+    response=search_in_resource(resource,query)
+    response_search('starships',query)
+    assert response.status_code == 200
+
+# 8)	create test which checks that search for any char in English alphabet or any number from 0 to 9 returns number of results>0 except cases of search by 6, 9 and 0. 
+# It is not allowed to use loops inside the test body.
