@@ -21,8 +21,8 @@ Command to run the test suite:
 |1|create fixture that returns an array with all people |Completed|
 |2|create test which checks that names of all people are unique|Completed|
 |3|create test (or a few) with validation that search for people is case insensitive|Completed|
-|4|create test which validates that there is no page with number 0 for people request||
-|5|create parametrized test which checks that there are 3 Skywalker's, 1 Vader, 2 Darth's (using ?search)||
+|4|create test which validates that there is no page with number 0 for people request|Completed|
+|5|create parametrized test which checks that there are 3 Skywalker's, 1 Vader, 2 Darth's (using ?search)|In Progress|
 |6|create test(s) which validate that all people objects contain required schema fields. If validation fails – person id and name should be in error/fail message. All persons with failed validation must be reported during one test run.||
 |7|create factory fixture “search_in_resource” that returns search function depending on the resource name provided as a parameter (people, planet, etc)||
 |8|create test which checks that search for any char in English alphabet or any number from 0 to 9 returns number of results>0 except cases of search by 6, 9 and 0. It is not allowed to use loops inside the test body.||
