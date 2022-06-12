@@ -1,1 +1,1 @@
-Test Name: test_swapi_get_root_response_code_wookie, Paramter:  , Run Execution Time: 212.18562126159668 ms.
+Test Name: test_swapi_get_root_response_code_wookie, Paramter:  , Run Execution Time: 113.21520805358887 ms.

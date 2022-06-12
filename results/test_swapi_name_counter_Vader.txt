@@ -1,1 +1,0 @@
-Test Name: test_swapi_name_counter, Paramter: Vader , Run Execution Time: 0.0 ms.

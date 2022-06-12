@@ -1,1 +1,1 @@
-Test Name: test_swapi_get_people_name_is_upper_case_insensitive, Paramter:  , Run Execution Time: 549.9978065490723 ms.
+Test Name: test_swapi_get_people_name_is_upper_case_insensitive, Paramter:  , Run Execution Time: 492.03944206237793 ms.

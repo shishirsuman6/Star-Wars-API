@@ -88,7 +88,7 @@ def get_time(write_to_file=False ):
             
             param=''
             for item in kwargs:
-                if str(type(kwargs[item]))[8:11] == 'str':
+                if str(type(kwargs[item]))[8:11] in ['str','int']:
                     param=param + '_' + str(kwargs[item])
             filename=f"results/{test_function.__name__}{param}.txt"
             output= (f"Test Name: {test_function.__name__}, Paramter: {param[1:]} , Run Execution Time: {(te - ts) * 1000} ms.")            

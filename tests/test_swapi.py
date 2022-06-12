@@ -132,3 +132,26 @@ def test_swapi_resource_search_query_random(resource, search_in_resource):
 
 
 
+# Additional Scenario:
+# Validate all hyperlinks from the response of People resource
+@get_time(write_to_file=True)
+@pytest.mark.swapipeopleschema
+@pytest.mark.parametrize(('id'), [0,1]) 
+def test_swapi_validate_people_url(people_results, id):
+    person=people_results[id]
+    person_url=[]
+
+    for item in person:
+        if item in ["homeworld", "url"]:
+            person_url.append(person[item])
+
+
+        if item in ["films","species", "vehicles", "starships"]:
+            for link in person[item]:
+                person_url.append(link)
+
+    for url in person_url:
+        print(url)
+        assert (response(url)).status_code == 200
+    
+
