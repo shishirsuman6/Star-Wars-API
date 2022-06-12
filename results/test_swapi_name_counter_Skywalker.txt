@@ -1,1 +1,1 @@
-Test Name: test_swapi_name_counter, Paramter: Skywalker , Run Execution Time: 1.0035037994384766 ms.
+Test Name: test_swapi_name_counter, Paramter: Skywalker , Run Execution Time: 0.0 ms.

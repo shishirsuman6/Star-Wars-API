@@ -1,0 +1,1 @@
+Test Name: test_swapi_get_planets_response_code_wookie, Paramter:  , Run Execution Time: 153.1846523284912 ms.

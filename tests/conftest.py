@@ -89,3 +89,10 @@ def pytest_runtest_makereport(item, call):
         if flag_config[0]:
             print('May the Force Be With You.')
 
+# Fixtures for Wookiee format
+
+@pytest.fixture
+def response_people_wookie(scope="session"):
+    # Generator setup
+    url="https://swapi.py4e.com/api/people?format=wookiee"   
+    yield (response(url))

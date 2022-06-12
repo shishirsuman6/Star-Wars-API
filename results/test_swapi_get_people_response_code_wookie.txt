@@ -1,0 +1,1 @@
+Test Name: test_swapi_get_people_response_code_wookie, Paramter:  , Run Execution Time: 0.0 ms.
