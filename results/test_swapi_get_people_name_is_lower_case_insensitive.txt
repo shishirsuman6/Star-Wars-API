@@ -1,0 +1,1 @@
+Test Name: test_swapi_get_people_name_is_lower_case_insensitive, Paramter:  , Run Execution Time: 506.6509246826172 ms.

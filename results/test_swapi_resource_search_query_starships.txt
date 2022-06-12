@@ -1,0 +1,1 @@
+Test Name: test_swapi_resource_search_query, Paramter: starships , Run Execution Time: 125.99992752075195 ms.

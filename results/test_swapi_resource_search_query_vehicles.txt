@@ -1,0 +1,1 @@
+Test Name: test_swapi_resource_search_query, Paramter: vehicles , Run Execution Time: 104.99835014343262 ms.

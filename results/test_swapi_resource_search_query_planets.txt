@@ -1,0 +1,1 @@
+Test Name: test_swapi_resource_search_query, Paramter: planets , Run Execution Time: 102.99348831176758 ms.

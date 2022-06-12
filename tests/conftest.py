@@ -44,6 +44,9 @@ def people(people_results):
    
     yield (people)
 
+
+# 7) create factory fixture “search_in_resource” that returns search function depending on the resource name provided as a parameter (people, planet, etc)
+
 @pytest.fixture
 def search_in_resource(scope="session"):
     def resource_search_response(resource,query_string):
@@ -64,8 +67,6 @@ flag_config=[False]
 
 def pytest_addoption(parser):
     parser.addoption("--may-force", action="store_true", default=False, help="enable/disable funny prints")
-
-
 
 def pytest_collection_modifyitems(config, items):
     first_test.append(items[0])
