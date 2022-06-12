@@ -31,12 +31,14 @@ The following Test scenarios are covered in this Test Suite:
 ||c.	*add a boolean parameter “may-force” for pytest launch (pytest –may-force) that is false by default. If specified as True then phrases from a) and b) should be printed. If false – phrases should not be in the log.|Completed|
 ||d.	**add a print of a phrase “Come To The Dark Side!” in the way that it should appear in log after “collected X item(s)” but before first test started  point с) (“may-force” parameter) still should work (enables print in log if specified) for that message as well|Completed|
 |10|try to suggest and implement any other meaningful and suitable tests for "get /people" request|Completed|
-||Validate all hyperlinks from the response of People resource|Completed|
+||1. Validate all hyperlinks from the response of People resource|Completed|
+||2. Validate count matches with the overall number of People results|Completed|
+||3. Validate whether films key has only URLs for films resources|Completed|
 |11|*implement a decorator that can be applied to each test and measure test time execution|Completed|
 ||a.	decorator should print the time to the log and also save the time to the file created in results folder with file_name = test_name|Completed|
 ||b.	**implement decorator in a way when it is possible to parametrize it and disable output to file like @get_time(write_to_file=True/False)|Completed|
 |12|* try to suggest (and implement if possible) any meaningful and suitable tests for "get /people" requests with parameter ?format=wookiee |Completed|
-||Validate API Calls to each resource|Completed|
+||1. Validate API Calls to each resource|Completed|
 |13|* There is some bug with implementation of Wookiee format. It would be great if you can find that and say a few words with your thoughts what is the root cause. Please write some kind of “Bug report” for issue found in the way how you would create that in bugtracker system.|[Bug ID 1](#bug_id-1), [Bug ID 2](#bug_id-2), [Bug ID 3](#bug_id-3), [Bug ID 4](#bug_id-4)|
 
 ## Bug Report

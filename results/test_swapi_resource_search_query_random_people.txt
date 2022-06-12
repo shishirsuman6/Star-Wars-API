@@ -1,1 +1,1 @@
-Test Name: test_swapi_resource_search_query_random, Paramter: people , Run Execution Time: 110.96954345703125 ms.
+Test Name: test_swapi_resource_search_query_random, Paramter: people , Run Execution Time: 475.7695198059082 ms.

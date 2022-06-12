@@ -135,7 +135,7 @@ def test_swapi_resource_search_query_random(resource, search_in_resource):
 # Additional Scenario:
 # Validate all hyperlinks from the response of People resource
 @get_time(write_to_file=True)
-@pytest.mark.swapipeopleschema
+@pytest.mark.swapi
 @pytest.mark.parametrize(('id'), [0,1]) 
 def test_swapi_validate_people_url(people_results, id):
     person=people_results[id]
@@ -155,3 +155,23 @@ def test_swapi_validate_people_url(people_results, id):
         assert (response(url)).status_code == 200
     
 
+# Validate count matches with the overall number of People results
+@get_time(write_to_file=True)
+@pytest.mark.swapi
+def test_swapi_validate_people_count(people_results, response_people):
+    print (len(people_results))
+    assert len(people_results) == response_people.json()["count"]
+
+# Validate whether films key has only URLs for films resources
+@get_time(write_to_file=True)
+@pytest.mark.swapi
+@pytest.mark.parametrize(('id'), [0,1]) 
+def test_swapi_validate_people_films_url(people_results, id):
+    person=people_results[id]
+    
+    for item in person:
+        if item in ["films"]:
+            for link in person[item]:
+                print(link)
+                link_list=link.split('/')
+                assert 'films' in link_list

@@ -1,1 +1,1 @@
-Test Name: test_swapi_get_species_response_code_wookie, Paramter:  , Run Execution Time: 136.99793815612793 ms.
+Test Name: test_swapi_get_species_response_code_wookie, Paramter:  , Run Execution Time: 166.7332649230957 ms.

@@ -1,1 +1,1 @@
-Test Name: test_swapi_validate_people_schema, Paramter:  , Run Execution Time: 239.78781700134277 ms.
+Test Name: test_swapi_validate_people_schema, Paramter:  , Run Execution Time: 219.73085403442383 ms.
