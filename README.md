@@ -80,7 +80,7 @@ The folloiwng options can be used:
 These reports are generated as a part of test run using the command in the previous section:  
 JUnit style XML Report: [Test_Run_Report.xml](/Test_Run_Report.xml)  
 Pytest HTML Report: [Test_Run_Report.html](/Test_Run_Report.html)  
-![HTML-Test-Result-example](HTML-Test-Result-example.PNG)
+![HTML-Test-Result-example](HTML-Test-Result-example.png)
 
 ## Docker endpoints:
 Pre-requisite:
