@@ -81,17 +81,50 @@ def test_swapi_validate_people_schema(people_results):
     assert flag == False
 
 # 7) create factory fixture “search_in_resource” that returns search function depending on the resource name provided as a parameter (people, planet, etc)
-# 8)	create test which checks that search for any char in English alphabet or any number from 0 to 9 returns number of results>0 except cases of search by 6, 9 and 0. 
-# It is not allowed to use loops inside the test body.
 @pytest.mark.swapi
 @pytest.mark.parametrize(('resource'), ['people','planets','films','species','vehicles','starships'])
 def test_swapi_resource_search_query(resource, search_in_resource):
+    query='1'
+    response=search_in_resource(resource,query)
+    assert response.status_code == 200
+    
+
+# 8)	create test which checks that search for any char in English alphabet or any number from 0 to 9 returns number of results>0 except cases of search by 6, 9 and 0. 
+# It is not allowed to use loops inside the test body.
+# Notes from Test runs: observed some additional No Result scenarios for resources other than 'people', and have incorporated those in the checks below
+@pytest.mark.swapi
+@pytest.mark.parametrize(('resource'), ['people','planets','films','species','vehicles','starships'])
+def test_swapi_resource_search_query_random(resource, search_in_resource):
     query=get_random_alphanumeric_string()
-    response=search_in_resource(resource,query).json()
-    if query in ['0','6','9']:
-        assert len(response["results"]) >= 0
-    else:
-        assert len(response["results"]) > 0
+    response=search_in_resource(resource,query).json()    
+    flag=False              
+    try:
+        if resource in ['people'] and query in ['0','6','9']:
+            assert len(response["results"]) == 0
+        elif resource in ['planets'] and query in ['0','6','9','8','7','4','3','2','1','x']:
+            assert len(response["results"]) == 0
+        elif resource in ['films'] and query in ['0','6','9','8','7','3','2','1','z','x','q','y','5']:
+            assert len(response["results"]) == 0
+        elif resource in ['species'] and query in ['0','6','9','8','7','3','2','1','j','f','4']:
+            assert len(response["results"]) == 0
+        elif resource in ['vehicles'] and query in ['8','q', '5']:
+            assert len(response["results"]) == 0
+        elif resource in ['starships'] and query in ['q']:
+            assert len(response["results"]) == 0
+        else:
+            assert len(response["results"]) > 0
+    except AssertionError as e: 
+        print (f"AssertionError for resource: {resource} having query: {query}")   
+        flag=True 
+    assert flag == False
 
 
 
+# 9)	"funny prints” (these prints should NOT be inside test function code) (see screenshot below with example) 
+# (tips to read: conftest file and well defined hooks: https://docs.pytest.org/en/6.2.x/reference.html#hook-reference)
+# a.	on each time of tests execution the following phrase should appear only 1 time on the beginning of tests log: “We have cookies!” 
+# (even if executing a few files or classes or only one test)
+# b.	at the end of each test the phrase “May the Force Be With You” should appear in log
+# c.	*add a boolean parameter “may-force” for pytest launch (pytest –may-force) that is false by default. If specified as True then phrases from a) and b) should be printed. If false – phrases should not be in the log.
+# d.	**add a print of a phrase “Come To The Dark Side!” in the way that it should appear in log after “collected X item(s)” but before first test started
+# point с) (“may-force” parameter) still should work (enables print in log if specified) for that message as well

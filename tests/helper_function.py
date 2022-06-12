@@ -29,7 +29,7 @@ def pytest_html_report_title(report):
     report.title = "Star Wars API - Test Results"
 
 def response_search(resource,query_string):
-    url= f"https://swapi.py4e.com/api/{resource}?search={query_string}"
+    url= f"https://swapi.py4e.com/api/{resource}/?search={query_string}"
     return (response(url))
 
 def counter(array):
@@ -44,8 +44,8 @@ def counter(array):
     return(dict)
 
 def get_random_alphanumeric_string():
-    str=string.ascii_letters+ '1234567890'
-    # str= '690' # to test results==0 scenario
+    str=string.ascii_lowercase + '1234567890'
+    # str= 'q' # to test results==0 scenario
     return ''.join(random.choice(str) for i in range(1))
     
 def people_name_slice(n):

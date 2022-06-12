@@ -49,3 +49,42 @@ def search_in_resource(scope="session"):
     def resource_search_response(resource,query_string):
         return (response_search(resource,query_string))        
     return resource_search_response
+
+# 9)	"funny prints” (these prints should NOT be inside test function code) (see screenshot below with example) 
+# (tips to read: conftest file and well defined hooks: https://docs.pytest.org/en/6.2.x/reference.html#hook-reference)
+# a.	on each time of tests execution the following phrase should appear only 1 time on the beginning of tests log: “We have cookies!” 
+# (even if executing a few files or classes or only one test)
+# b.	at the end of each test the phrase “May the Force Be With You” should appear in log
+# c.	*add a boolean parameter “may-force” for pytest launch (pytest –may-force) that is false by default. If specified as True then phrases from a) and b) should be printed. If false – phrases should not be in the log.
+# d.	**add a print of a phrase “Come To The Dark Side!” in the way that it should appear in log after “collected X item(s)” but before first test started
+# point с) (“may-force” parameter) still should work (enables print in log if specified) for that message as well
+
+first_test=[]
+flag_config=[False]
+
+def pytest_addoption(parser):
+    parser.addoption("--may-force", action="store_true", default=False, help="enable/disable funny prints")
+
+
+
+def pytest_collection_modifyitems(config, items):
+    first_test.append(items[0])
+    if config.getoption("--may-force"):
+        flag_config[0]=True
+
+def pytest_collection_finish():
+    if flag_config[0]:
+        print("Come To The Dark Side!")
+
+def pytest_runtest_makereport(item, call):
+    if call.when == 'call':
+        print('')
+        if item==first_test[0]:
+            if flag_config[0]:
+                print('We have cookies!')   
+      
+    if call.when == 'teardown':
+        print('')
+        if flag_config[0]:
+            print('May the Force Be With You.')
+
