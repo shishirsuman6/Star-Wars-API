@@ -1,1 +1,0 @@
-Test Name: test_swapi_resource_search_query, Paramter: films , Run Execution Time: 123.99530410766602 ms.

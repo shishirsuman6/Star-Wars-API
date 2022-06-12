@@ -1,1 +1,0 @@
-Test Name: test_swapi_resource_search_query, Paramter: species , Run Execution Time: 115.5080795288086 ms.

@@ -35,7 +35,15 @@ The following Test scenarios are covered in this Test Suite:
 ||a.	decorator should print the time to the log and also save the time to the file created in results folder with file_name = test_name|Completed|
 ||b.	**implement decorator in a way when it is possible to parametrize it and disable output to file like @get_time(write_to_file=True/False)|Completed|
 |12|* try to suggest (and implement if possible) any meaningful and suitable tests for "get /people" requests with parameter ?format=wookiee |In Progress|
-|13|* There is some bug with implementation of Wookiee format. It would be great if you can find that and say a few words with your thoughts what is the root cause. Please write some kind of “Bug report” for issue found in the way how you would create that in bugtracker system.|schema in wookiee format is not available; https://swapi.py4e.com/api/people/?page=0/?format=wookiee returns english language errors|
+|13|* There is some bug with implementation of Wookiee format. It would be great if you can find that and say a few words with your thoughts what is the root cause. Please write some kind of “Bug report” for issue found in the way how you would create that in bugtracker system.|[Bug ID 1](#bug_id-1), [Bug ID 2](#bug_id-2), [Bug ID 3](#bug_id-3), [Bug ID 4](#bug_id-4)|
+
+## Bug Report
+|__Bug ID__|__Issue__|__Steps To Simulate__|__Expected Result__|__Actual Result__|__Severity__|__Priority__|
+|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+|<a id="bug_id-1">Bug ID 1</a>|Schema is not available in Wookiee format|Run: https://swapi.py4e.com/api/people/schema?format=wookiee|JSON schema appears with keys in Wookie format|JSON schema appears with keys in English format.|Medium|2|
+|<a id="bug_id-2">Bug ID 2</a>|Invalid page doesn't return error in Wookiee format|Run: https://swapi.py4e.com/api/people/?page=0/?format=wookiee|Error Details are in Wookiee format|Error Details are in English Language format.|Low|3|
+|<a id="bug_id-3">Bug ID 3</a>|Hyperlinks in Wookie Format don't work|Run: https://swapi.py4e.com/api/films/?format=wookiee. In the response, click on any hyperlink, e.g. //cohraakah.akro4wo.oaoosc/raakah/akwoooakanwo/1/|Response status is 200, and shows details for the person searched|Response status is 404 (Not Found)|High|1|
+|<a id="bug_id-4">Bug ID 4</a>|Valid Page returns Error|Run: https://swapi.py4e.com/api/people/?page=2?format=wookiee|Response status is 200, and shows details from the 2nd page|Response status is 404 (Not Found)|High|1|
 
 ## Command to run the test suite     
         
